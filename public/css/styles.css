@@ -1,0 +1,496 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f9;
+    color: #444;
+    display: flex;
+}
+
+@media screen and (max-width: 800px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: static !important;
+    }
+
+    .orders-chart-details {
+        flex-direction: column;
+    }
+
+    .order-details {
+        width: 100% !important;
+    }
+
+    .orders-chart {
+        margin-bottom: 10px;
+    }
+
+    .orders-chart {
+        width: 100% !important;
+    }
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.sidebar {
+    min-width: 250px;
+    background-color: #2f4050;
+    color: white;
+    padding: 0;
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    overflow-y: auto; 
+    top: 0; 
+    left: 0; 
+}
+
+.user-info {
+    text-align: center;
+    padding: 20px; 
+    background-color: #293846;
+    border-bottom: 1px solid #4c5a71;
+}
+
+.user-info p {
+    margin: 5px 0;
+}
+
+.user-info .title {
+    font-size: 12px;
+    color: #a7b1c2;
+}
+
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-item {
+    padding: 12px 20px; 
+    border-bottom: 1px solid #4c5a71;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #a7b1c2;
+}
+
+.menu-item i {
+    margin-right: 10px;
+    color: #a7b1c2; 
+    width: 20px;
+    font-size: 16px;
+}
+.menu-item .badge {
+    background-color: #1ab394;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-size: 10px;
+}
+
+.menu-item .badge.orange {
+    background-color: #f8ac59;
+}
+
+.menu-item .badge.blue {
+    background-color: #23c6c8;
+}
+
+.menu-item .badge.green {
+    background-color: #1ab394;
+}
+
+.menu-item.active {
+    background-color: #293846; 
+    border-left: 5px solid #1ab394; 
+    color: white; 
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item-title {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.menu-item.active span {
+    color: white; 
+}
+
+.menu-item.active .submenu {
+    display: block; 
+    padding-left: 15px; 
+}
+
+.menu-item:hover {
+    background-color: #2a3b4f; 
+    border-left: 5px solid #1ab394;
+    color: white;
+}
+
+.menu-item .submenu {
+    display: none; 
+}
+
+.menu-item.active .submenu,
+.menu-item:hover .submenu {
+    display: block; 
+}
+
+.submenu li {
+    margin: 10px 0;
+}
+
+.menu-item:hover {
+    background-color: #293846;
+}
+
+.menu-item .submenu {
+    display: none;
+    margin-top: 10px;
+    padding-left: 15px;
+    color: #a7b1c2;
+}
+
+.menu-item.active .submenu,
+.menu-item:hover .submenu {
+    display: block;
+}
+
+.menu-item.special .badge {
+    background-color: #23c6c8;
+    margin-left: 10px;
+}
+
+.menu-item.landing {
+    margin-top: auto;
+    background-color: #23c6c8;
+    color: white;
+    text-align: center;
+}
+
+.menu-item.landing .badge {
+    background-color: #f8ac59;
+    margin-left: 10px;
+}
+
+/* .main-content {
+    margin-left: 220px; 
+    padding: 20px;
+    
+} */
+
+.main-content {
+    margin-left: 220px; 
+    padding: 20px;
+    flex-grow: 1;
+}
+.top-metrics {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.metric-box {
+    background-color: white;
+    padding: 0 25px 25px 25px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    width: 23%;
+    text-align: center;
+    border: 2px solid #ddd;
+    display: flex;
+    flex-direction: column;
+}
+
+.metric-box.container {
+    width: 100%;
+}
+
+.metric-box h2 {
+    color: #48C9B0;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.metric-box .value {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.metric-box .period {
+    color: #aaa;
+    font-size: 14px;
+}
+
+.metric-box .percentage {
+    background-color: #28a745;
+    color: white;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    width: 40px;
+    margin: 5px 5px;
+    align-self: flex-end;
+}
+
+.charts {
+    margin-bottom: 20px;
+}
+
+.orders-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.orders-chart-details {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: auto;
+}
+
+.orders-chart {
+    width: 75%;
+}
+
+.orders-chart img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.order-details {
+    width: 25%;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.order-details .order-item {
+    margin-bottom: 20px;
+}
+
+.order-details .bar {
+    background-color: #eee;
+    border-radius: 5px;
+    height: 10px;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+
+.order-details .fill {
+    background-color: #48C9B0;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.order-details .percentage {
+    font-size: 14px;
+    text-align: right;
+    color: #48C9B0;
+    font-weight: bold;
+}
+
+.lower-panels {
+    display: flex;
+    justify-content: space-between;
+}
+
+.messages {
+    background-color: white;
+    padding: 20px;
+    width: 30%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.messages h3 {
+    margin-bottom: 10px;
+}
+
+.messages p {
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.messages ul {
+    list-style-type: none;
+    margin-top: 10px;
+}
+
+.messages ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.message-content strong {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.message-content span {
+    font-size: 13px;
+    color: #888;
+}
+
+.message-content small {
+    font-size: 12px;
+    color: #aaa;
+}
+
+.right-panel {
+    width: 68%;
+    display: flex;
+    flex-direction: column;
+}
+
+.todo-user-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.todo-list, .user-projects, .transactions {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.user-projects h3 {
+    margin-bottom: 8px;
+}
+
+.user-projects-table th, td {
+    padding: 15px;
+}
+
+.todo-list {
+    width: 48%;
+}
+
+.todo-list ul {
+    list-style-type: none;
+}
+
+.todo-list ul li {
+    margin-bottom: 10px;
+}
+
+.todo-list .time {
+    float: right;
+    color: #48C9B0;
+}
+
+.user-projects {
+    width: 48%;
+}
+
+.user-projects table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.user-projects th, .user-projects td {
+    text-align: left;
+    padding: 5px 0;
+}
+
+.user-projects-table span.cancelled {
+    background-color: #f0ad4e;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.user-projects-table span.completed {
+    background-color: #1ab394;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.user-projects span.pending {
+    padding: 5px;
+}
+
+.user-projects .value-up {
+    color: #5cb85c;
+}
+
+.user-projects .value-down {
+    color: #d9534f;
+}
+
+.transactions img {
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+    }
+
+    .top-metrics {
+        flex-direction: column;
+    }
+
+    .metric-box {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .lower-panels {
+        flex-direction: column;
+    }
+
+    .messages, .right-panel {
+        width: 100%;
+    }
+
+    .right-panel {
+        margin-top: 20px;
+    }
+
+    .todo-user-container {
+        flex-direction: column;
+    }
+
+    .todo-list, .user-projects {
+        width: 100%;
+    }
+}
